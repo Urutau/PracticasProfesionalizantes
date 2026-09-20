@@ -1,0 +1,196 @@
+{
+  "usuarios": [
+    {
+      "id_usuario": "U001",
+      "apellido": "Deris",
+      "nombre": "Andrés",
+      "correo": "andi.deris@workstation.com.ar",
+      "password": "12345678",
+      "telefono": 1167892362,
+      "rol": "01"
+    },
+    {
+      "id_usuario": "U007",
+      "apellido": "Kiske",
+      "nombre": "Miguel",
+      "correo": "michael.kiske@workstation.com.ar",
+      "password": "12345678",
+      "telefono": 1167896587,
+      "rol": "01"
+    },
+    {
+      "id_usuario": "U002",
+      "apellido": "Roth",
+      "nombre": "David Lee",
+      "correo": "dl.roth@workstation.com.ar",
+      "password": "qwerty",
+      "telefono": 1167892345,
+      "rol": "02"
+    },
+    {
+      "id_usuario": "U008",
+      "apellido": "Coverdale",
+      "nombre": "David",
+      "correo": "ws@workstation.com.ar",
+      "password": "qwerty",
+      "telefono": 1167895547,
+      "rol": "02"
+    },
+    {
+      "id_usuario": "U003",
+      "apellido": "Hetfield",
+      "nombre": "Jaime",
+      "correo": "jahetfield@tallica.com",
+      "password": "asdfgh",
+      "telefono": 1167255434,
+      "rol": "03"
+    },
+    {
+      "id_usuario": "U004",
+      "apellido": "Halford",
+      "nombre": "Roberto",
+      "correo": "painkiller@judas.uk",
+      "password": "zxcvbnm",
+      "telefono": 1167895848,
+      "rol": "03"
+    },
+    {
+      "id_usuario": "U005",
+      "apellido": "Dickinson",
+      "nombre": "Bruno",
+      "correo": "brunito@maiden.uk",
+      "password": "poiuyt",
+      "telefono": 1167893658,
+      "rol": "03"
+    },
+    {
+      "id_usuario": "U006",
+      "apellido": "Lee",
+      "nombre": "Amy",
+      "correo": "al.hartzler@evanescence.com",
+      "password": "ñlkjhg",
+      "telefono": 1167854785,
+      "rol": "03"
+    }
+  ],
+
+  "espacios": [
+    {
+      "id_tipo_espacio": "01",
+      "tipo": "Sala Mayor",
+      "capacidad": 20,
+      "cantidad": 1
+    },
+    {
+      "id_tipo_espacio": "02",
+      "tipo": "Sala",
+      "capacidad": 12,
+      "cantidad": 3
+    },
+    {
+      "id_tipo_espacio": "03",
+      "tipo": "Escritorio",
+      "capacidad": 1,
+      "cantidad": 30
+    }
+  ],
+
+  "espacios_cm": [
+    {
+      "id_tipo_espacio": "SM01",
+      "tipo": "Sala",
+      "nombre": "Sala Mayor",
+      "disponibilidad":"Libre"
+    },
+    {
+      "id_tipo_espacio": "S01",
+      "tipo": "Sala",
+      "nombre": "Berlin",
+      "disponibilidad":"Libre"
+    },
+    {
+      "id_tipo_espacio": "S02",
+      "tipo": "Sala",
+      "nombre": "Frankfurt",
+      "disponibilidad":"Ocupado"
+    },
+    {
+      "id_tipo_espacio": "S03",
+      "tipo": "Sala",
+      "nombre": "Hamburg",
+      "disponibilidad":"En mantenimiento"
+    }
+  ],
+
+  "extras": [
+    {
+      "id_extra": "EX01",
+      "nombre": "Proyector",
+      "precio_unitario": 3000,
+      "cantidad_disponible": 3
+    },
+    {
+       "id_extra": "EX02",
+       "nombre": "Pizarra digital",
+       "precio_unitario": 5000,
+       "cantidad_disponible": 3
+    },
+    {
+      "id_extra": "EX03",
+      "nombre": "Café",
+      "precio_unitario": 25000,
+      "cantidad_disponible": 50
+    }
+  ],
+
+  "reservas": [
+    {
+      "id_reserva": "R001",
+      "id_usuario": "U001",
+      "fecha": "2026-09-21",
+      "hora": "09:00",
+      "duracion": 2,
+      "id_tipo_espacio": "01",
+      "extras": [
+        {
+          "id_extra": "EX01",
+          "nombre": "Proyector",
+          "cantidad": 1
+        }
+      ],
+      "invitados": 5,
+      "creditos_utilizados": 4,
+      "estado": "Activa"
+    },
+    {
+      "id_reserva": "R002",
+      "id_usuario": "U002",
+      "fecha": "2026-09-21",
+      "hora": "09:00",
+      "duracion": 1,
+      "id_tipo_espacio": "01",
+      "extras": [],
+      "invitados": 8,
+      "creditos_utilizados": 2,
+      "estado": "Activa"
+    },
+    {
+      "id_reserva": "R003",
+      "id_usuario": "U003",
+      "fecha": "2026-09-21",
+      "hora": "10:00",
+      "duracion": 3,
+      "id_tipo_espacio": "02",
+      "extras": [
+        {
+          "id_extra": "EX03",
+          "nombre": "Café",
+          "cantidad": 2
+        }
+      ],
+      "invitados": 0,
+      "creditos_utilizados": 3,
+      "estado": "Activa"
+    }
+  ]
+}
