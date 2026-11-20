@@ -11,12 +11,16 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-//Parte 3 - Listar las reservas
+app.get('/api/usuarios', (req, res) => {
+    res.json(datos.usuarios);
+});
 
-
-// app.get('/api/reservas', (req, res) => {
-//     res.json(reservas);
-// });
+// Listar las reservas
+//    ____   _____   _____ 
+//   / ___| | ____| |_   _|
+//  | |  _  |  _|     | |  
+//  | |_| | | |___    | |  
+//   \____| |_____|   |_|
 
 app.get('/api/reservas', (req, res) => {
 
@@ -43,7 +47,12 @@ app.get('/api/reservas', (req, res) => {
 });
 
 
-//Parte 4 - Buscar reserva por ID
+//Buscar reserva por ID
+//    ____   _____   _____     ____   __   __    ___   ____  
+//   / ___| | ____| |_   _|   | __ )  \ \ / /   |_ _| |  _ \ 
+//  | |  _  |  _|     | |     |  _ \   \ V /     | |  | | | |
+//  | |_| | | |___    | |     | |_) |   | |      | |  | |_| |
+//   \____| |_____|   |_|     |____/    |_|     |___| |____/
 
 app.get('/api/reservas/:id', (req, res) => {
     const id = Number(req.params.id);
@@ -54,9 +63,13 @@ app.get('/api/reservas/:id', (req, res) => {
     res.json(reserva);
 });
 
+// Crear reserva
+//   ____     ___    ____    _____ 
+//  |  _ \   / _ \  / ___|  |_   _|
+//  | |_) | | | | | \___ \    | |  
+//  |  __/  | |_| |  ___) |   | |  
+//  |_|      \___/  |____/    |_|
 
-
-// Agregar una reserva
 
 app.post('/api/reservas', (req, res) => {
 
@@ -86,20 +99,6 @@ app.post('/api/reservas', (req, res) => {
     res.status(201).json(nuevo);
 
 });
-
-
-// app.post('/api/reservas', (req, res) => {
-//     const { nombre, precio, categoria } = req.body || {};
-
-//     if (!nombre || precio < 0 || !categoria){
-//         return res.status(404)
-//         .json({error: 'Dato ausente o precio menor a 1'});
-//     }
-
-//     const nuevo = {id_reserva: reservas.length + 1, nombre, precio, categoria};
-//     reservas.push(nuevo);
-//     res.status(201).json(nuevo);
-// })
 
 app.listen(PORT, () => {console.log(`http://localhost:${PORT}`)
 })
