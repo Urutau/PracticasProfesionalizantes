@@ -150,16 +150,16 @@ const usuarioLoggeado = JSON.parse(
 
 /// Rutas de navegación
 
-const enPages = window.location.pathname.includes("/Pages/");
+const enPages = window.location.pathname.includes("/pages/");
 
 const inicio = enPages ? "../index.html" : "index.html";
-const membresias = enPages ? "membresias.html" : "Pages/membresias.html";
-const contacto = enPages ? "contacto.html" : "Pages/contacto.html";
-const espacios = enPages ? "espacios.html" : "Pages/espacios.html";
-const historial = enPages ? "historial.html" : "Pages/historial.html";
-const login = enPages ? "_login.html" : "Pages/_login.html";
-const _duenio_page = enPages ? "_duenio_page.html" : "Pages/_duenio_page.html";
-const _cm_page = enPages ? "_cm_page.html" : "Pages/_cm_page.html";
+const membresias = enPages ? "membresias.html" : "pages/membresias.html";
+const contacto = enPages ? "contacto.html" : "pages/contacto.html";
+const espacios = enPages ? "espacios.html" : "pages/espacios.html";
+const historial = enPages ? "historial.html" : "pages/historial.html";
+const login = enPages ? "_login.html" : "pages/_login.html";
+const _duenio_page = enPages ? "_duenio_page.html" : "pages/_duenio_page.html";
+const _cm_page = enPages ? "_cm_page.html" : "pages/_cm_page.html";
 
 const nav = document.getElementById("navPrincipal");
 
