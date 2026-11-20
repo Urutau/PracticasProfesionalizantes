@@ -2,10 +2,11 @@ let datos;
 
 // Cargar datos del JSON
 
-async function cargarDatos() {
 
-    const respuesta = await fetch("/backend/datos.json");
-    datos = await respuesta.json();
+async function cargarDatos() {
+    const respuesta = await fetch("https://workstation-oklm.onrender.com/api/usuarios");
+    const usuarios = await respuesta.json();
+    datos = { usuarios };
 }
 
 
@@ -52,47 +53,19 @@ async function cargarReservas() {
 }
 
 
-// async function cargarReservas() {
-
-//     const respuesta = await fetch("http://localhost:3000/api/reservas");
-//     // const respuesta = await fetch("/api/reservas");
-//     const reservas = await respuesta.json();
-
-//     const tabla = document.querySelector("#reservas");
-
-//     if (tabla) {
-
-//         tabla.innerHTML = "";
-
-//         reservas.forEach(reserva => {
-
-//             tabla.innerHTML += `
-//                 <tr>
-//                     <td>${reserva.fecha}</td>
-//                     <td>${reserva.hora}</td>
-//                     <td>${reserva.id_tipo_espacio}</td>
-//                     <td>${reserva.estado}</td>
-//                 </tr>
-//             `;
-
-//         });
-//     }
-// }
-
-// Carga datos para login
-
-cargarDatos();
+// Carga datos para la página del CM
 cargarReservas();
 
 // LogIn y acceso por rol
-
 const formulario = document.getElementById("formLogIn");
 
 if (formulario) {
 
-    formulario.addEventListener("submit", function (event) {
+    formulario.addEventListener("submit", async function(event) {
 
         event.preventDefault();
+
+        await cargarDatos();
 
         const email = document.getElementById("liemail").value;
         const password = document.getElementById("lipassword").value;
@@ -121,6 +94,49 @@ if (formulario) {
     });
 
 }
+
+// // Carga datos para login
+
+// cargarDatos();
+// cargarReservas();
+
+// // LogIn y acceso por rol
+
+// const formulario = document.getElementById("formLogIn");
+
+// if (formulario) {
+
+//     formulario.addEventListener("submit", function (event) {
+
+//         event.preventDefault();
+
+//         const email = document.getElementById("liemail").value;
+//         const password = document.getElementById("lipassword").value;
+
+//         const usuarioIn = datos.usuarios.find(
+//             usuario => usuario.correo === email
+//         );
+
+//         if (usuarioIn && usuarioIn.password === password) {
+
+//             localStorage.setItem(
+//                 "usuarioLoggeado",
+//                 JSON.stringify(usuarioIn)
+//             );
+
+//             alert("Inicio de sesión exitoso ✅");
+
+//             window.location.href = "../index.html";
+
+//         } else {
+
+//             alert("Usuario y/o contraseña incorrectos ⛔");
+
+//         }
+
+//     });
+
+// }
 
 
 // Esto es para el index
