@@ -57,6 +57,9 @@ async function cargarReservas() {
 // Carga datos para la página del CM
 cargarReservas();
 
+// Carga datos para el historial de usuario
+cargarMisReservas();
+
 // LogIn y acceso por rol
 const formulario = document.getElementById("formLogIn");
 
@@ -96,6 +99,43 @@ if (formulario) {
 
 }
 
+
+// Reservas por usuario
+
+// Para mostrar las reservas del usuario
+async function cargarMisReservas() {
+
+    const tabla = document.querySelector("#misReservas");
+
+    if (tabla) {
+
+        const usuario = JSON.parse(
+            localStorage.getItem("usuarioLoggeado")
+        );
+
+        const respuesta = await fetch("https://workstation-oklm.onrender.com/api/reservas");
+        const reservas = await respuesta.json();
+
+        const misReservas = reservas.filter(
+            reserva => reserva.id_usuario === usuario.id_usuario
+        );
+
+        tabla.innerHTML = "";
+
+        misReservas.forEach(reserva => {
+
+            tabla.innerHTML += `
+                <tr>
+                    <td>${reserva.fecha}</td>
+                    <td>${reserva.hora}</td>
+                    <td>${reserva.tipo_espacio}</td>
+                    <td>${reserva.estado}</td>
+                </tr>
+            `;
+
+        });
+    }
+}
 
 // Esto es para el index
 
