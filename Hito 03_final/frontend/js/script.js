@@ -72,9 +72,15 @@ async function cargarReservas() {
             });
 
             const resultado = await respuesta.json();
+// Actualizar la columna Estado
+            if (respuesta.ok) {
 
-            console.log(resultado);
+                this.closest("tr").cells[9].textContent = resultado.estado;
+                console.log(resultado);
 
+            } else {
+                alert("No se pudo actualizar la reserva");
+            }
         });
 
 });
