@@ -54,6 +54,68 @@ async function cargarReservas() {
         });
     }
 
+
+function cargarEspacios() {
+
+    const espacios = [
+        { nombre: "Sala Mayor", estado: "Libre" },
+        { nombre: "Berlin", estado: "Libre" },
+        { nombre: "Frankfurt", estado: "Ocupado" },
+        { nombre: "Hamburg", estado: "En mantenimiento" }
+    ];
+
+    const tabla = document.querySelector("#espacios");
+
+    if (tabla) {
+        tabla.innerHTML = "";
+
+        espacios.forEach(espacio => {
+            tabla.innerHTML += `
+                <tr>
+                    <td>${espacio.nombre}</td>
+                    <td>
+                        <select>
+                            <option value="Libre" ${espacio.estado === "Libre" ? "selected" : ""}>Disponible</option>
+                            <option value="Ocupado" ${espacio.estado === "Ocupado" ? "selected" : ""}>Ocupado</option>
+                            <option value="En mantenimiento" ${espacio.estado === "En mantenimiento" ? "selected" : ""}>En mantenimiento</option>
+                        </select>
+                    </td>
+                </tr>
+            `;
+        });
+
+        // Fila agrupada de escritorios
+        let opciones = "";
+
+        for (let i = 0; i <= 30; i++) {
+            opciones += `<option value="${i}">${i}</option>`;
+        }
+
+        tabla.innerHTML += `
+            <tr>
+                <td>Escritorios (30)</td>
+                <td>
+                    <label>Ocupados:</label>
+                    <select id="escritoriosOcupados">
+                        ${opciones}
+                    </select>
+                    <span id="escritoriosDisponibles">30 disponibles</span>
+                </td>
+            </tr>
+        `;
+
+        // Actualizar la cantidad disponible
+        const selector = document.querySelector("#escritoriosOcupados");
+        const disponibles = document.querySelector("#escritoriosDisponibles");
+
+        selector.addEventListener("change", function() {
+            disponibles.textContent = (30 - Number(this.value)) + " disponibles";
+        });
+    }
+}
+
+
+
 // Cambiar estado de una reserva
     const desplegables = document.querySelectorAll(".estadoReserva");
 
@@ -93,6 +155,9 @@ cargarReservas();
 
 // Carga datos para el historial de usuario
 cargarMisReservas();
+
+//Cargar los espacios de la tabla del CM
+cargarEspacios();
 
 // LogIn y acceso por rol
 const formulario = document.getElementById("formLogIn");
