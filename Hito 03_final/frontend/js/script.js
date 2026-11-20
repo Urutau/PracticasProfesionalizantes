@@ -54,6 +54,37 @@ async function cargarReservas() {
         });
     }
 
+// Cambiar estado de una reserva
+    const desplegables = document.querySelectorAll(".estadoReserva");
+
+    desplegables.forEach(desplegable => {
+
+        desplegable.addEventListener("change", async function() {
+
+            const id = this.dataset.id;
+            const estado = this.value;
+            const respuesta = await fetch(`https://workstation-oklm.onrender.com/api/reservas/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ estado: estado })
+            });
+
+            const resultado = await respuesta.json();
+// Actualizar la columna Estado
+            if (respuesta.ok) {
+
+                this.closest("tr").cells[9].textContent = resultado.estado;
+                console.log(resultado);
+
+            } else {
+                alert("No se pudo actualizar la reserva");
+            }
+        });
+
+});
+}
 
 function cargarEspacios() {
 
@@ -115,48 +146,13 @@ function cargarEspacios() {
 }
 
 
-
-// Cambiar estado de una reserva
-    const desplegables = document.querySelectorAll(".estadoReserva");
-
-    desplegables.forEach(desplegable => {
-
-        desplegable.addEventListener("change", async function() {
-
-            const id = this.dataset.id;
-            const estado = this.value;
-            const respuesta = await fetch(`https://workstation-oklm.onrender.com/api/reservas/${id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ estado: estado })
-            });
-
-            const resultado = await respuesta.json();
-// Actualizar la columna Estado
-            if (respuesta.ok) {
-
-                this.closest("tr").cells[9].textContent = resultado.estado;
-                console.log(resultado);
-
-            } else {
-                alert("No se pudo actualizar la reserva");
-            }
-        });
-
-});
-
-}
-
-
 // Carga datos para la página del CM
 cargarReservas();
 
 // Carga datos para el historial de usuario
 cargarMisReservas();
 
-//Cargar los espacios de la tabla del CM
+//Cargar tabla de espacios para el CM
 cargarEspacios();
 
 // LogIn y acceso por rol
