@@ -1,5 +1,4 @@
 
-//Parte 2 - Server:
 const cors = require('cors');
 const datos = require('./datos.json');
 const reservas = datos.reservas;
@@ -16,11 +15,6 @@ app.get('/api/usuarios', (req, res) => {
 });
 
 // Listar las reservas
-//    ____   _____   _____ 
-//   / ___| | ____| |_   _|
-//  | |  _  |  _|     | |  
-//  | |_| | | |___    | |  
-//   \____| |_____|   |_|
 
 app.get('/api/reservas', (req, res) => {
 
@@ -48,12 +42,6 @@ app.get('/api/reservas', (req, res) => {
 
 
 //Buscar reserva por ID
-//    ____   _____   _____     ____   __   __    ___   ____  
-//   / ___| | ____| |_   _|   | __ )  \ \ / /   |_ _| |  _ \ 
-//  | |  _  |  _|     | |     |  _ \   \ V /     | |  | | | |
-//  | |_| | | |___    | |     | |_) |   | |      | |  | |_| |
-//   \____| |_____|   |_|     |____/    |_|     |___| |____/
-
 app.get('/api/reservas/:id', (req, res) => {
     const id = Number(req.params.id);
     const reserva = reservas.find(p => p.id_reserva == id);
@@ -63,13 +51,30 @@ app.get('/api/reservas/:id', (req, res) => {
     res.json(reserva);
 });
 
-// Crear reserva
-//   ____     ___    ____    _____ 
-//  |  _ \   / _ \  / ___|  |_   _|
-//  | |_) | | | | | \___ \    | |  
-//  |  __/  | |_| |  ___) |   | |  
-//  |_|      \___/  |____/    |_|
+// PATCH cambiar estado de reserva
+app.patch('/api/reservas/:id', (req, res) => {
 
+    const id = Number(req.params.id);
+
+    const reserva = reservas.find(p => p.id_reserva == id);
+
+    if (!reserva) {
+        return res.status(404).json({error: 'Reserva no encontrada'});
+    }
+
+    const { estado } = req.body;
+
+    if (estado !== 'Activa' && estado !== 'Anulada') {
+        return res.status(400).json({error: 'Estado no válido'});
+    }
+
+    reserva.estado = estado;
+
+    res.json(reserva);
+
+});
+
+// Crear reserva
 
 app.post('/api/reservas', (req, res) => {
 
