@@ -210,7 +210,7 @@ if (formReserva) {
 
         console.log(nuevaReserva);
 
-        const respuesta = await fetch("http://localhost:3000/api/reservas", {
+        const respuesta = await fetch("https://workstation-oklm.onrender.com/api/reservas", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
