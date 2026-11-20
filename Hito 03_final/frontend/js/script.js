@@ -2,7 +2,6 @@ let datos;
 
 // Cargar datos del JSON
 
-
 async function cargarDatos() {
     const respuesta = await fetch("https://workstation-oklm.onrender.com/api/usuarios");
     const usuarios = await respuesta.json();
@@ -12,11 +11,9 @@ async function cargarDatos() {
 
 // Para la página de CM
 
-
 async function cargarReservas() {
 
     const respuesta = await fetch("https://workstation-oklm.onrender.com/api/reservas");
-    //const respuesta = await fetch("http://localhost:3000/api/reservas");
     const reservas = await respuesta.json();
 
     const tabla = document.querySelector("#reservas");
@@ -45,12 +42,43 @@ async function cargarReservas() {
                     <td>${reserva.invitados}</td>
                     <td>${reserva.creditos_utilizados}</td>
                     <td>${reserva.estado}</td>
-                    <td></td>
+                    <td>
+                        <select class="estadoReserva" data-id="${reserva.id_reserva}">
+                            <option value="Activa" ${reserva.estado === "Activa" ? "selected" : ""}>Activa</option>
+                            <option value="Anulada" ${reserva.estado === "Anulada" ? "selected" : ""}>Anulada</option>
+                        </select>
+                    </td>
                 </tr>
             `;
 
         });
     }
+
+// Cambiar estado de una reserva
+    const desplegables = document.querySelectorAll(".estadoReserva");
+
+    desplegables.forEach(desplegable => {
+
+        desplegable.addEventListener("change", async function() {
+
+            const id = this.dataset.id;
+            const estado = this.value;
+            const respuesta = await fetch(`https://workstation-oklm.onrender.com/api/reservas/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ estado: estado })
+            });
+
+            const resultado = await respuesta.json();
+
+            console.log(resultado);
+
+        });
+
+});
+
 }
 
 
