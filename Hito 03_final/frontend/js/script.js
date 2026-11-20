@@ -15,7 +15,8 @@ async function cargarDatos() {
 
 async function cargarReservas() {
 
-    const respuesta = await fetch("http://localhost:3000/api/reservas");
+    const respuesta = await fetch("https://workstation-oklm.onrender.com/api/reservas");
+    //const respuesta = await fetch("http://localhost:3000/api/reservas");
     const reservas = await respuesta.json();
 
     const tabla = document.querySelector("#reservas");
@@ -94,49 +95,6 @@ if (formulario) {
     });
 
 }
-
-// // Carga datos para login
-
-// cargarDatos();
-// cargarReservas();
-
-// // LogIn y acceso por rol
-
-// const formulario = document.getElementById("formLogIn");
-
-// if (formulario) {
-
-//     formulario.addEventListener("submit", function (event) {
-
-//         event.preventDefault();
-
-//         const email = document.getElementById("liemail").value;
-//         const password = document.getElementById("lipassword").value;
-
-//         const usuarioIn = datos.usuarios.find(
-//             usuario => usuario.correo === email
-//         );
-
-//         if (usuarioIn && usuarioIn.password === password) {
-
-//             localStorage.setItem(
-//                 "usuarioLoggeado",
-//                 JSON.stringify(usuarioIn)
-//             );
-
-//             alert("Inicio de sesión exitoso ✅");
-
-//             window.location.href = "../index.html";
-
-//         } else {
-
-//             alert("Usuario y/o contraseña incorrectos ⛔");
-
-//         }
-
-//     });
-
-// }
 
 
 // Esto es para el index
