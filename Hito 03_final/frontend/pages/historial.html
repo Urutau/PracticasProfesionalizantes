@@ -25,27 +25,37 @@
 
 				<h4>Nueva reserva</h4>
 
-				<form id="formReserva">
+				<form id="formReserva" class="form-reserva">
 
-					<label for="fecha">Fecha:</label>
-					<input type="date" id="fecha" required>
+					<div class="campo-reserva">
+						<label for="fecha">Fecha:</label>
+						<input type="date" id="fecha" required>
+					</div>
 
-					<label for="hora">Hora:</label>
-					<input type="time" id="hora" required>
+					<div class="campo-reserva">
+						<label for="hora">Hora:</label>
+						<input type="time" id="hora" required>
+					</div>
 
-					<label for="espacio">Espacio:</label>
-					<select id="espacio" required>
-						<option value="">Seleccionar espacio</option>
-						<option value="01">Sala Mayor</option>
-						<option value="02">Sala</option>
-						<option value="03">Escritorio</option>
-					</select>
+					<div class="campo-reserva campo-completo">
+						<label for="espacio">Espacio:</label>
+						<select id="espacio" required>
+							<option value="">Seleccionar espacio</option>
+							<option value="01">Sala Mayor</option>
+							<option value="02">Sala</option>
+							<option value="03">Escritorio</option>
+						</select>
+					</div>
 
-					<label for="duracion">Duración (horas):</label>
-					<input type="number" id="duracion" min="1" required>
+					<div class="campo-reserva">
+						<label for="duracion">Duración (horas):</label>
+						<input type="number" id="duracion" min="1" required>
+					</div>
 
-					<label for="invitados">Cantidad de invitados:</label>
-					<input type="number" id="invitados" min="0" value="0">
+					<div class="campo-reserva">
+						<label for="invitados">Cantidad de invitados:</label>
+						<input type="number" id="invitados" min="0" value="0">
+					</div>
 
 					<button type="submit">Reservar</button>
 

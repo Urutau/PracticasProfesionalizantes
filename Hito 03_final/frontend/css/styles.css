@@ -179,3 +179,85 @@ table tfoot .links a{
   padding: 2px 8px;
   border-radius: 5px;
 }
+
+/* Formulario de reservas */
+
+.form-reserva {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #f5f7fc;
+    border: 1px solid #cfdede;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.campo-reserva {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo-reserva label {
+    font-weight: bold;
+    color: #0d1d63;
+    font-size: 14px;
+}
+
+.campo-reserva input,
+.campo-reserva select {
+    padding: 11px;
+    border: 1px solid #b8c8d8;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    background-color: white;
+    color: #333;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.campo-reserva input:focus,
+.campo-reserva select:focus {
+    outline: none;
+    border-color: #1F5FBF;
+    box-shadow: 0 0 4px rgba(31, 95, 191, 0.4);
+}
+
+.campo-completo {
+    grid-column: 1 / 3;
+}
+
+.form-reserva button {
+    grid-column: 1 / 3;
+    padding: 12px;
+    background-color: #1F5FBF;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-reserva button:hover {
+    background-color: #174A99;
+}
+
+/* Adaptación a celulares */
+
+@media (max-width: 600px) {
+    .form-reserva {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .campo-completo,
+    .form-reserva button {
+        grid-column: 1;
+    }
+}
