@@ -357,6 +357,14 @@ if (formReserva) {
 
         console.log(resultado);
 
+        if (respuesta.ok) {
+            await cargarMisReservas();
+            formReserva.reset();
+            alert("Reserva realizada con éxito");
+        } else {
+            alert("No se pudo realizar la reserva.");
+        }
+
     });
 
 }
