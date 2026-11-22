@@ -367,4 +367,20 @@ if (formReserva) {
 
     });
 
+// Destino del enlace "Historial y agenda" en el inicio
+const enlaceReservasInicio =
+    document.getElementById("enlaceReservasInicio");
+
+if (enlaceReservasInicio && usuarioLoggeado) {
+
+    if (usuarioLoggeado.rol === "03") {
+        enlaceReservasInicio.href = "pages/historial.html";
+    } else if (usuarioLoggeado.rol === "02") {
+        enlaceReservasInicio.href = "pages/_cm_page.html";
+    } else if (usuarioLoggeado.rol === "01") {
+        enlaceReservasInicio.href = "pages/_duenio_page.html";
+    }
+
+};
+
 }
