@@ -351,3 +351,64 @@ table tfoot .links a{
         grid-column: 1;
     }
 }
+
+
+/* Formulario de inicio de sesión */
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #f5f7fc;
+    border: 1px solid #cfdede;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.campo-login {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo-login label {
+    font-weight: bold;
+    color: #0d1d63;
+    font-size: 14px;
+}
+
+.campo-login input {
+    padding: 11px;
+    border: 1px solid #b8c8d8;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    background-color: white;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.campo-login input:focus {
+    outline: none;
+    border-color: #1F5FBF;
+    box-shadow: 0 0 4px rgba(31, 95, 191, 0.4);
+}
+
+.form-login button {
+    padding: 12px;
+    background-color: #1F5FBF;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-login button:hover {
+    background-color: #174A99;
+}
