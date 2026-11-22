@@ -362,7 +362,7 @@ if (formReserva) {
             formReserva.reset();
             alert("Reserva realizada con éxito");
         } else {
-            alert("No se pudo realizar la reserva.");
+            alert(resultado.error || "No se pudo realizar la reserva.");
         }
 
     });
