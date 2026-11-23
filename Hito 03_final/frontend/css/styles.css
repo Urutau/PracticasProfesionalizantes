@@ -413,9 +413,9 @@ table tfoot .links a{
     background-color: #174A99;
 }
 
-// PÁGINA DE INICIO
+/* PÁGINA DE INICIO */
 
-// Bloque de bienvenida 
+/* Bloque de bienvenida  */
 .inicio-bienvenida {
     padding: 32px;
     margin-bottom: 32px;
@@ -444,14 +444,14 @@ table tfoot .links a{
     line-height: 1.7;
 }
 
-// Título de la sección
+/* Título de la sección */
 .inicio-opciones h2 {
     margin: 0 0 24px;
     color: #17365d;
     font-size: 26px;
 }
 
-// Tarjetas de acceso
+/* Tarjetas de acceso */
 .inicio-opciones article {
     margin-bottom: 20px;
     padding: 26px;
@@ -473,7 +473,7 @@ table tfoot .links a{
     line-height: 1.7;
 }
 
-// Enlaces con apariencia de botón
+/* Enlaces con apariencia de botón */
 .inicio-enlace,
 .inicio-enlace:visited {
     display: inline-block;
@@ -493,13 +493,13 @@ table tfoot .links a{
     color: #ffffff;
 }
 
-// Resaltar el enlace al navegar con el teclado
+/* Resaltar el enlace al navegar con el teclado */
 .inicio-enlace:focus-visible {
     outline: 3px solid #174a99;
     outline-offset: 4px;
 }
 
-// Ajustes para pantallas pequeñas
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 600px) {
     .inicio-bienvenida {
         padding: 28px 22px;
@@ -511,9 +511,9 @@ table tfoot .links a{
 }
 
 
-// PÁGINA DE MEMBRESÍAS
+/* PÁGINA DE MEMBRESÍAS */
 
-// Presentación 
+/* Presentación  */
 .membresias-intro {
     margin-bottom: 30px;
     padding: 12px 0 26px;
@@ -539,7 +539,7 @@ table tfoot .links a{
     line-height: 1.8;
 }
 
-// Dos tarjetas por fila
+/* Dos tarjetas por fila */
 .membresias-grilla {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -547,7 +547,7 @@ table tfoot .links a{
     margin-bottom: 30px;
 }
 
-// Tarjetas 
+/* Tarjetas  */
 .membresia-tarjeta {
     margin: 0;
     padding: 28px;
@@ -557,7 +557,7 @@ table tfoot .links a{
     box-shadow: 0 4px 16px rgba(23, 54, 93, 0.04);
 }
 
-// Detalle
+/* Detalle */
 .membresia-tarjeta::before {
     content: "";
     display: block;
@@ -591,7 +591,7 @@ table tfoot .links a{
     line-height: 1.6;
 }
 
-// Frase final
+/* Frase final */
 .membresias-cierre {
     margin-bottom: 0;
     padding: 22px 26px;
@@ -607,7 +607,7 @@ table tfoot .links a{
     text-align: center;
 }
 
-// Una tarjeta por fila en pantallas pequeñas
+/* Una tarjeta por fila en pantallas pequeñas */
 @media (max-width: 650px) {
     .membresias-grilla {
         grid-template-columns: 1fr;
@@ -619,7 +619,7 @@ table tfoot .links a{
     }
 }
 
-// Botón al final de Membresías
+/* Botón al final de Membresías */
 .membresias-cierre {
     text-align: center;
 }
@@ -649,7 +649,7 @@ table tfoot .links a{
     outline-offset: 4px;
 }
 
-// Tarjeta de Salas de trabajo
+/* Tarjeta de Salas de trabajo */
 .espacio-salas {
     margin-bottom: 20px;
     padding: 24px;

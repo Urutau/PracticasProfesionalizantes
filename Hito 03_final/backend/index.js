@@ -42,6 +42,7 @@ app.get('/api/reservas', (req, res) => {
 
 
 //Buscar reserva por ID
+
 app.get('/api/reservas/:id', (req, res) => {
     const id = Number(req.params.id);
     const reserva = reservas.find(p => p.id_reserva == id);
@@ -52,6 +53,7 @@ app.get('/api/reservas/:id', (req, res) => {
 });
 
 // PATCH cambiar estado de reserva
+
 app.patch('/api/reservas/:id', (req, res) => {
 
     const id = Number(req.params.id);

@@ -329,6 +329,7 @@ if (usuarioLoggeado) {
 
 
 //Para cerrar la sesión
+
 const cerrarSesion = document.getElementById("cerrarSesion");
 
 if (cerrarSesion) {
@@ -343,6 +344,7 @@ if (cerrarSesion) {
 }
 
 //Formulario de reservas
+
 const formReserva = document.getElementById("formReserva");
 
 if (formReserva) {
@@ -395,6 +397,7 @@ if (formReserva) {
     });
 
 // Destino del enlace "Historial y agenda" en el inicio
+
 const enlaceReservasInicio =
     document.getElementById("enlaceReservasInicio");
 
