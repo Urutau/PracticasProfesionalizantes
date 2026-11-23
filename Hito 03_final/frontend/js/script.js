@@ -311,7 +311,7 @@ if (cerrarSesion) {
 
         localStorage.removeItem("usuarioLoggeado");
 
-        window.location.href = "_login.html";
+        window.location.href = login;
     });
 }
 
