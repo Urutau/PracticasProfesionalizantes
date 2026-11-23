@@ -255,7 +255,7 @@ const _duenio_page = enPages ? "_duenio_page.html" : "pages/_duenio_page.html";
 const _cm_page = enPages ? "_cm_page.html" : "pages/_cm_page.html";
 
 
-// Verificar permisos de acceso a página de dueño y Community Manager
+// Verificar permisos de acceso a página de dueño, Community Manager e Historial de Coworker
 
 const paginaActual = window.location.pathname;
 
@@ -271,6 +271,14 @@ if (paginaActual.endsWith("/_cm_page.html") &&
 
     alert("El rol actual no permite el acceso a esta página.");
     window.location.href = usuarioLoggeado ? inicio : login;
+}
+
+if (paginaActual.endsWith("/historial.html") &&
+    (!usuarioLoggeado || usuarioLoggeado.rol !== "03")) {
+
+    alert("Debés iniciar sesión como cliente para acceder a tus reservas.");
+    window.location.href = usuarioLoggeado ? inicio : login;
+
 }
 
 const nav = document.getElementById("navPrincipal");
