@@ -4,11 +4,11 @@ Proyecto de Prácticas Profesionalizantes I de la Tecnicatura en Desarrollo de S
 
 ## Grupo 01 Caso 04
 
-- Cristina Ortega
+- Julia Gabito
 - Natalia Larrarte Barboza
+- Cristina Ortega
 - Fernando San Emeterio
 - César Villarreal
-- Julia Gabito
 
 ## Descripción
 
@@ -173,4 +173,4 @@ El control actual se aplica al `POST`, a Sala Mayor y a períodos de una misma f
 - **Informes:** las reservas del dueño provienen de la API, pero las ventas mensuales, los porcentajes de créditos y el ranking de horarios son valores ilustrativos escritos en HTML. No se calculan a partir de las operaciones.
 - **Contacto:** el formulario abre una confirmación, pero no registra ni envía mensajes o correos.
 - **Otros módulos:** no se implementaron pases digitales, notificaciones automáticas ni copias de seguridad.
-- **Navegación y errores:** falta completar el manejo de fallos de conexión, el acceso al historial sin usuario y la ruta de cierre de sesión desde el inicio.
+- **Navegación y errores:** falta completar el manejo de fallos de conexión.
