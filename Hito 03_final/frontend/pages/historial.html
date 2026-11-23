@@ -26,14 +26,14 @@
 				<h4>Nueva reserva</h4>
 
 				<form id="formReserva" class="form-reserva">
-
+					
 					<div class="campo-reserva">
 						<label for="fecha">Fecha:</label>
 						<input type="date" id="fecha" required>
 					</div>
 
 					<div class="campo-reserva">
-						<label for="hora">Hora:</label>
+						<label for="hora">Hora de inicio:</label>
 						<input type="time" id="hora" required>
 					</div>
 
@@ -66,11 +66,12 @@
 				<table>
 					<thead>
 						<tr>
-							<th>Fecha</th>
-							<th>Hora</th>
-							<th>Espacio</th>
-							<th>Estado</th>
-						</tr>
+    						<th>Fecha</th>
+    						<th>Inicio</th>
+    						<th>Finalización</th>
+    						<th>Espacio</th>
+    						<th>Estado</th>
+							</tr>
 					</thead>
 					<tbody id="misReservas"></tbody>
 				</table>

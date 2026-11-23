@@ -72,14 +72,22 @@ async function cargarReservas() {
             });
 
             const resultado = await respuesta.json();
-// Actualizar la columna Estado
+
+
+        // Actualizar la columna Estado
             if (respuesta.ok) {
 
                 this.closest("tr").cells[9].textContent = resultado.estado;
                 console.log(resultado);
 
             } else {
-                alert("No se pudo actualizar la reserva");
+               // Volver a mostrar el estado anterior de la reserva.
+                const fila = this.closest("tr");
+                const estadoAnterior = fila.cells[9].textContent;
+
+                this.value = estadoAnterior;
+
+                alert(resultado.error || "No se pudo actualizar la reserva");
             }
         });
 
@@ -219,10 +227,28 @@ async function cargarMisReservas() {
 
         misReservas.forEach(reserva => {
 
+            // Separar la hora de inicio en horas y minutos.
+            const [horas, minutos] = reserva.hora.split(":").map(Number);
+
+            // Sumar la duración, expresando todo en minutos.
+            const inicioEnMinutos = horas * 60 + minutos;
+            const finEnMinutos = inicioEnMinutos +
+                Math.round(Number(reserva.duracion) * 60);
+
+            // Convertir el resultado nuevamente a horas y minutos.
+            const horasFin = Math.floor(finEnMinutos / 60);
+            const minutosFin = finEnMinutos % 60;
+
+            // Armar el texto con dos dígitos para cada parte.
+            const horaFin =
+                String(horasFin).padStart(2, "0") + ":" +
+                String(minutosFin).padStart(2, "0");
+
             tabla.innerHTML += `
                 <tr>
                     <td>${reserva.fecha}</td>
                     <td>${reserva.hora}</td>
+                    <td>${horaFin}</td>
                     <td>${reserva.tipo_espacio}</td>
                     <td>${reserva.estado}</td>
                 </tr>
@@ -395,22 +421,24 @@ if (formReserva) {
         }
 
     });
+}
 
 // Destino del enlace "Historial y agenda" en el inicio
 
 const enlaceReservasInicio =
     document.getElementById("enlaceReservasInicio");
 
-if (enlaceReservasInicio && usuarioLoggeado) {
+if (enlaceReservasInicio) {
 
-    if (usuarioLoggeado.rol === "03") {
-        enlaceReservasInicio.href = "pages/historial.html";
-    } else if (usuarioLoggeado.rol === "02") {
-        enlaceReservasInicio.href = "pages/_cm_page.html";
-    } else if (usuarioLoggeado.rol === "01") {
-        enlaceReservasInicio.href = "pages/_duenio_page.html";
+    enlaceReservasInicio.href = login;
+
+    if (usuarioLoggeado) {
+        if (usuarioLoggeado.rol === "03") {
+            enlaceReservasInicio.href = "pages/historial.html";
+        } else if (usuarioLoggeado.rol === "02") {
+            enlaceReservasInicio.href = "pages/_cm_page.html";
+        } else if (usuarioLoggeado.rol === "01") {
+            enlaceReservasInicio.href = "pages/_duenio_page.html";
+        }
     }
-
-};
-
 }
