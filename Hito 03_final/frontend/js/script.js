@@ -254,6 +254,25 @@ const login = enPages ? "_login.html" : "pages/_login.html";
 const _duenio_page = enPages ? "_duenio_page.html" : "pages/_duenio_page.html";
 const _cm_page = enPages ? "_cm_page.html" : "pages/_cm_page.html";
 
+
+// Verificar permisos de acceso a página de dueño y Community Manager
+
+const paginaActual = window.location.pathname;
+
+if (paginaActual.endsWith("/_duenio_page.html") &&
+    (!usuarioLoggeado || usuarioLoggeado.rol !== "01")) {
+
+    alert("El rol actual no permite el acceso a esta página.");
+    window.location.href = usuarioLoggeado ? inicio : login;
+}
+
+if (paginaActual.endsWith("/_cm_page.html") &&
+    (!usuarioLoggeado || usuarioLoggeado.rol !== "02")) {
+
+    alert("El rol actual no permite el acceso a esta página.");
+    window.location.href = usuarioLoggeado ? inicio : login;
+}
+
 const nav = document.getElementById("navPrincipal");
 
 if (usuarioLoggeado) {
