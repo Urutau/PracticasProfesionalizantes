@@ -658,20 +658,6 @@ table tfoot .links a{
     background: #ffffff;
 }
 
-.espacio-salas h3 {
-    margin: 0 0 12px;
-    color: #174a99;
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.espacio-salas p {
-    margin: 0 0 20px;
-    color: #526175;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
 .espacio-salas figure {
     margin: 0;
 }
@@ -685,8 +671,3 @@ table tfoot .links a{
     border-radius: 10px;
 }
 
-.espacio-salas figcaption {
-    margin-top: 10px;
-    color: #526175;
-    font-size: 13px;
-}
